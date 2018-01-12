@@ -3,6 +3,7 @@
 // Now, let's play a little with it
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 int main(){
@@ -20,14 +21,31 @@ int main(){
     std::cout << s.substr(0,s.length()-i) << '\n';
   }
   
-  std::cout.width(20);
-  std::cout.fill('=');
+  std::cout.width(50);
+  std::cout.fill('-');
   std::cout << '\n';
+  std::cout.fill(' ');
 
-  std::cout.width(17);
+  /**
+   * Ok, so now lets print "Hello World!" in a field of 17 spaces 4 times on a line for 6 lines
+   * using for-loops. This one is from "Google for Education"
+   **/
   for (int i = 0;i < 6;++i){
     for (int j = 0;j < 4; ++j){
+      std::cout.width(17);
       std::cout << s;
+    }
+    std::cout << '\n';
+  }
+
+  /**
+   * Let's do the last one again but this time with left aligment and using the iomanip library
+   **/
+  std::cout << std::setw(69) << std::setfill('-') << '\n' << std::setfill(' ');
+
+  for (int i = 0;i < 6;++i){
+    for (int j = 0;j < 4; ++j){
+      std::cout << std::setw(17) << std::left << s;
     }
     std::cout << '\n';
   }
